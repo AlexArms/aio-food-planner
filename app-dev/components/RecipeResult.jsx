@@ -1,13 +1,25 @@
 import React from 'react';
-import { Result, RecipeImg, RecipeTitle } from '../styled-components.js';
+import { RecipeCard, RecipeImg, RecipeTitle, Button } from '../styled-components.js';
 
-const RecipeResult = ({ recipe }) => {
+const RecipeResult = ({ recipe, loggedIn, setSavedRecipes }) => {
+
+  const saveRecipe = (recipe) => {
+    if (!loggedIn) {
+      const savedRecipes = JSON.parse(window.localStorage.getItem('savedRecipes'));
+      savedRecipes.push(recipe);
+      window.localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
+      setSavedRecipes(JSON.parse(window.localStorage.getItem('savedRecipes')));
+    } else {
+
+    }
+  }
 
   return (
-    <Result>
+    <RecipeCard>
       <RecipeTitle>{recipe.title}</RecipeTitle>
+      <Button onClick={saveRecipe}>Save Recipe</Button>
       <RecipeImg src={recipe.image}></RecipeImg>
-    </Result>
+    </RecipeCard>
   );
 
 };

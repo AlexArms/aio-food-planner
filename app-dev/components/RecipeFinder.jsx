@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { MealSearch, IngredientInput, SearchInfo, Button } from '../styled-components.js';
 import axios from 'axios';
 
-const MealFinder = ({ setResults }) => {
+const RecipeFinder = ({ setResults }) => {
 
   const [ingredients, setIngredients] = useState({});
 
@@ -32,7 +32,7 @@ const MealFinder = ({ setResults }) => {
     <MealSearch className="meal-search">
       <SearchInfo>Enter up to 10 different ingredients to search for a recipe with!</SearchInfo>
       <IngredientInput type="text" name="i1" className="ing-input" onChange={updateIngredients}></IngredientInput>
-      <IngredientInput type="text" name="i2" className="ing-input" className="ing-input" onChange={updateIngredients}></IngredientInput>
+      <IngredientInput type="text" name="i2" className="ing-input" onChange={updateIngredients}></IngredientInput>
       <IngredientInput type="text" name="i3" className="ing-input" onChange={updateIngredients}></IngredientInput>
       <IngredientInput type="text" name="i4" className="ing-input" onChange={updateIngredients}></IngredientInput>
       <IngredientInput type="text" name="i5" className="ing-input" onChange={updateIngredients}></IngredientInput>
@@ -48,4 +48,4 @@ const MealFinder = ({ setResults }) => {
 
 };
 
-export default MealFinder;
+export default RecipeFinder;

@@ -1,15 +1,15 @@
 import React from 'react';
 import RecipeResult from './RecipeResult.jsx';
-import { ResultsDisplay } from '../styled-components.js';
+import { RecipeDisplay, SectionHeader } from '../styled-components.js';
 
-const RecipeResults = ({ results }) => {
+const RecipeResults = ({ results, loggedIn, setSavedRecipes }) => {
 
   return (
     <>
-      <h3>Search Results</h3>
-      <ResultsDisplay>
-        {results.map(recipe => <RecipeResult key={recipe.id} recipe={recipe}/>)}
-      </ResultsDisplay>
+      <SectionHeader>Search Results</SectionHeader>
+      <RecipeDisplay>
+        {results.map(recipe => <RecipeResult key={recipe.id} recipe={recipe} loggedIn={loggedIn} setSavedRecipes={setSavedRecipes}/>)}
+      </RecipeDisplay>
     </>
   );
 
